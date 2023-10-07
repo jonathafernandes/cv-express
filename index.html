@@ -7,9 +7,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 </head>
 <body>
-    <input type="text" id="inputValue" placeholder="Seu nome completo">
-    <button onclick="generatePDF()">Donwloado do currículo</button>
+    <form action="#" method="post">
+
+    <label for="fullName">Nome completo:</label><br>
+    <input type="text" id="fullName" name="fullName"><br><br>
     
-    <script src="./script.js"></script>
+    <label for="location">Localidade:</label><br>
+    <input type="location" id="location" name="location"><br><br>
+
+    <label for="phoneNumber">Telefone:</label><br>
+    <input type="phoneNumber" id="phoneNumber" name="phoneNumber"><br><br>
+
+    <label for="email">E-mail:</label><br>
+    <input type="text" id="email" name="email"><br><br>
+    
+    <label for="careerObjective">Objetivo profissional:</label><br>
+    <textarea type="text" id="careerObjective" name="careerObjective" rows="2" cols="50"></textarea><br><br>
+    
+    <label for="aboutYou">Sobre você:</label><br>
+    <textarea id="aboutYou" name="aboutYou" rows="4" cols="50"></textarea><br><br>
+    
+    <label for="schooling">Escolaridade:</label><br>
+    <textarea id="schooling" name="schooling" rows="4" cols="50"></textarea><br><br>
+    
+    <label for="professionalExperience">Experiência:</label><br>
+    <textarea id="professionalExperience" name="professionalExperience" rows="4" cols="50"></textarea><br><br>
+    
+    <input type="submit" value="Donwload do currículo" onclick="generatePDF()"></input>
+    </form>
+        
+        <script src="./script.js"></script>
+    </form>
 </body>
 </html>
