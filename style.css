@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+
+    margin: 20px;
+}
+
+label {
+    margin-top: 20px;
+}
+
+input {
+    margin-top: 10px;
+    padding: 10px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+}
+
+textarea {
+    margin-top: 10px;
+    padding: 20px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+}
+
+span {
+    margin-right: 5px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1, h2{
+    font-family: 'Young Serif', serif;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+form h2 {
+    margin: 40px 0;
+
+    text-align: center;
+}
+
+.form-section-1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.careerObjective, .aboutYou{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.careerObjective p, .aboutYou p {
+    font-weight: 300;
+
+    width: 50%;
+}
+
+.professionalExperience, .schooling {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.professionalExperience p, .schooling p {
+    font-weight: 300;
+
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+form button {
+    padding: 10px;
+
+    border: 1px solid;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+form button:hover {
+    background-color: #000;
+    color: #fff;
+}

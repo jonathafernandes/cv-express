@@ -1,4 +1,20 @@
+let pdfmakeLoaded = false;
+
+function checkPdfMakeLoaded() {
+    if (typeof pdfMake !== 'undefined') {
+    pdfmakeLoaded = true;
+    console.log('pdfmake carregado com sucesso.');
+    } else {
+    console.error('Erro ao carregar pdfmake.');
+    }
+}
+
 function generatePDF() {
+    if (!pdfmakeLoaded) {
+    console.error('pdfmake não está carregado corretamente.');
+    return;
+    }
+
     const fullName = document.getElementById('fullName').value;
     const location = document.getElementById('location').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
@@ -6,38 +22,89 @@ function generatePDF() {
     const careerObjective = document.getElementById('careerObjective').value;
     const aboutYou = document.getElementById('aboutYou').value;
     const schooling = document.getElementById('schooling').value;
-    const professionalExperience = document.getElementById('professionalExperience').value;
+    const role = document.querySelector('role').value;
+    const company = document.querySelector('company').value;
+    const workingTime = document.querySelector('workingTime').value;
+    const description = document.querySelector('description').value;
+    
 
-    const doc = new jsPDF();
-    doc.setFont('courier', 'normal');
-    doc.setFontSize(11);
+    const documentDefinition = {
+    content: [
+        {
+            text: `${fullName}`, margin: [ 0, 0, 0, 10 ], 
+            style: 'header'
+        },
+        {
+            text: `${location}`,
+            style: 'subheader'
+        },
+        {
+            text: `${phoneNumber}`,
+            style: 'subheader'
+        },
+        {
+            text: `${email}`,
+            style: 'subheader'
+        },
+        {
+            text: 'OBJETIVO PROFISSIONAL\n______________________________________________________',
+            style: 'title'
+        },
+        {
+            text: `${careerObjective}`,
+            style: 'main'
+        },
+        {
+            text: 'SOBRE MIN\n______________________________________________________',
+            style: 'title'
+        },
+        {
+            text: `${aboutYou}`,
+            style: 'main'
+        },
+        {
+            text: 'ESCOLARIDADE\n______________________________________________________',
+            style: 'title'
+        },
+        {
+            text: `${schooling}`,
+            style: 'main'
+        },
+        {
+            text: 'EXPERIÊNCIA\n______________________________________________________',
+            style: 'title'
+        },
+        {
+            text: `${role}, ${company} ${workingTime} ${description}`,
+            style: 'main'
+        }
+        ],
+        styles: {
+            header: {
+                fontSize: 20,
+                bold: true,
+            },
+            subheader: {
+                fontSize: 14,
+                margin: [ 0, 0, 0, 2 ]
+            },
+            title: {
+                fontSize: 16,
+                bold: true,
+                margin: [ 0, 20, 0, 0 ]
+            },
+            main: {
+                fontSize: 14
+            }
+        }
+    };
 
-    // Adiciona o texto com quebras de linha
-    const splitName = doc.splitTextToSize(fullName, 190); // Largura máxima para quebra de linha
-    doc.text(splitName, 10, 10);
+    pdfMake.createPdf(documentDefinition).download('documento.pdf');
+}
 
-    const splitPhoneLocation = doc.splitTextToSize(location, 190);
-    doc.text(splitPhoneLocation, 150, 10)
+checkPdfMakeLoaded();
 
-    const splitPhoneNumber = doc.splitTextToSize(phoneNumber, 190);
-    doc.text(splitPhoneNumber, 150, 15)
-
-    const splitEmail = doc.splitTextToSize(email, 190);
-    doc.text(splitEmail, 150, 20)
-
-    const splitCareerObjective = doc.splitTextToSize(`OBJETIVO PROFISSIONAL\n__________________________________________________________________________\n${careerObjective}`, 190);
-    doc.setFont('courier', 'bold');
-    doc.text(splitCareerObjective, 10, 40);
-    doc.setFont('courier', 'normal');
-
-    const splitAboutYou = doc.splitTextToSize(`SOBRE MIM\n__________________________________________________________________________\n${aboutYou}`, 190);
-    doc.text(splitAboutYou, 10, 65);
-
-    const splitSchooling = doc.splitTextToSize(`ESCOLARIDADE\n__________________________________________________________________________\n${schooling}`, 190);
-    doc.text(splitSchooling, 10, 100);
-
-    const splitProfessionalExperience = doc.splitTextToSize(`EXPERIÊNCIA PROFSSIONAL\n__________________________________________________________________________\n${professionalExperience}`, 190);
-    doc.text(splitProfessionalExperience, 10, 130);
-
-    doc.save('documento.pdf');
+const generateButton = document.getElementById('generateButton');
+if (generateButton) {
+    generateButton.addEventListener('click', generatePDF);
 }
