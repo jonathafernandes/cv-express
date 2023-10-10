@@ -11,7 +11,7 @@ body {
 }
 
 label {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 input {
@@ -97,6 +97,26 @@ form h2 {
     width: 50%;
 }
 
+.professionalExperience .content-experience {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content-experience div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 form button {
     padding: 10px;
 
@@ -109,4 +129,39 @@ form button {
 form button:hover {
     background-color: #000;
     color: #fff;
+}
+
+@media (max-width: 825px) {
+    .careerObjective, .aboutYou{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .careerObjective p, .aboutYou p {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 665px) {
+    .careerObjective p, .aboutYou p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 525px) {
+    input, textarea {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column-reverse;
+    }
+
+    .form-section-1 {
+        flex-direction: column;
+    }
+
+    .professionalExperience p, .schooling p {
+        width: 100%;
+    }
 }
