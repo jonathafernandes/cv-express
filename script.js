@@ -3,7 +3,7 @@ let pdfmakeLoaded = false;
 function checkPdfMakeLoaded() {
     if (typeof pdfMake !== 'undefined') {
     pdfmakeLoaded = true;
-    console.log('pdfmake carregado com sucesso.');
+    console.log('pdfmake carregado com sucesso');
     } else {
     console.error('Erro ao carregar pdfmake.');
     }
@@ -11,7 +11,7 @@ function checkPdfMakeLoaded() {
 
 function generatePDF() {
     if (!pdfmakeLoaded) {
-    console.error('pdfmake não está carregado corretamente.');
+    console.error('[Error] pdfmake não está carregado corretamente');
     return;
     }
 
@@ -22,11 +22,22 @@ function generatePDF() {
     const careerObjective = document.getElementById('careerObjective').value;
     const aboutYou = document.getElementById('aboutYou').value;
     const schooling = document.getElementById('schooling').value;
-    const role = document.querySelector('role').value;
-    const company = document.querySelector('company').value;
-    const workingTime = document.querySelector('workingTime').value;
-    const description = document.querySelector('description').value;
-    
+    const role = document.getElementById('role').value;
+    const role2 = document.getElementById('role2').value;
+    const role3 = document.getElementById('role3').value;
+    const role4 = document.getElementById('role4').value;
+    const company = document.getElementById('company').value;
+    const company2 = document.getElementById('company2').value;
+    const company3 = document.getElementById('company3').value;
+    const company4 = document.getElementById('company4').value;
+    const workingTime = document.getElementById('workingTime').value;
+    const workingTime2 = document.getElementById('workingTime2').value;
+    const workingTime3 = document.getElementById('workingTime3').value;
+    const workingTime4 = document.getElementById('workingTime4').value;
+    const description = document.getElementById('description').value;
+    const description2 = document.getElementById('description2').value;
+    const description3 = document.getElementById('description3').value;
+    const description4 = document.getElementById('description4').value;
 
     const documentDefinition = {
     content: [
@@ -75,9 +86,69 @@ function generatePDF() {
             style: 'title'
         },
         {
-            text: `${role}, ${company} ${workingTime} ${description}`,
+            text: `${role}`,
+            style: 'subtitle'
+        },
+        {
+            text: `${company}`,
+            style: 'others'
+        },
+        {
+            text: `${workingTime}`,
+            style: 'date'
+        },
+        {
+            text: `${description}`, margin: [0, 10, 0, 10],
             style: 'main'
-        }
+        },
+        {
+            text: `${role2}`,
+            style: 'subtitle'
+        },
+        {
+            text: `${company2}`,
+            style: 'others'
+        },
+        {
+            text: `${workingTime2}`,
+            style: 'date'
+        },
+        {
+            text: `${description2}`, margin: [0, 10, 0, 10],
+            style: 'main'
+        },
+        {
+            text: `${role3}`,
+            style: 'subtitle'
+        },
+        {
+            text: `${company3}`,
+            style: 'others'
+        },
+        {
+            text: `${workingTime3}`,
+            style: 'date'
+        },
+        {
+            text: `${description3}`, margin: [0, 10, 0, 10],
+            style: 'main'
+        },
+        {
+            text: `${role4}`,
+            style: 'subtitle'
+        },
+        {
+            text: `${company4}`,
+            style: 'others'
+        },
+        {
+            text: `${workingTime4}`,
+            style: 'date'
+        },
+        {
+            text: `${description4}`, margin: [0, 10, 0, 10],
+            style: 'main'
+        },
         ],
         styles: {
             header: {
@@ -85,16 +156,30 @@ function generatePDF() {
                 bold: true,
             },
             subheader: {
-                fontSize: 14,
+                fontSize: 13,
+                color: '#333333',
                 margin: [ 0, 0, 0, 2 ]
             },
             title: {
-                fontSize: 16,
+                fontSize: 13,
                 bold: true,
                 margin: [ 0, 20, 0, 0 ]
             },
+            subtitle: {
+                bold: true,
+                fontSize: 13,
+            },
             main: {
-                fontSize: 14
+                fontSize: 12,
+                bold: false,
+                color: '#333333'
+            },
+            date: {
+                italics: true,
+                fontSize: 10
+            },
+            others: {
+                fontSize: 11
             }
         }
     };
