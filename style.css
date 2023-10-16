@@ -7,6 +7,7 @@
 body {
     font-family: 'Ubuntu', sans-serif;
     font-size: 1rem;
+    line-height: 20px;
 
     margin: 20px;
 }
@@ -57,10 +58,20 @@ h1 {
     font-size: 30px;
 }
 
-.example {
+ul li {
+    list-style: none;
     font-size: 0.85rem;
     opacity: 0.7;
-    line-height: 40px;
+    background: #dfdfdf;
+    font-weight: 300;
+
+    padding: 0.25rem;
+}
+
+.example {
+    font-size: 0.85rem;
+    font-weight: 300;
+    opacity: 0.7;
     background: #dfdfdf;
 
     padding: 0.25rem;
@@ -86,10 +97,26 @@ form h2 {
     gap: 20px;
 }
 
-.careerObjective p, .aboutYou p {
+.careerObjective p {
     font-weight: 300;
 
     width: 50%;
+}
+
+.aboutYou .content-text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.aboutYou p {
+    font-weight: 300;
+}
+
+.aboutYou .content-text .lists {
+    display: flex;
+    margin: 10px 0;
+    gap: 20px;
 }
 
 .professionalExperience, .schooling {
@@ -103,7 +130,7 @@ form h2 {
 .professionalExperience p, .schooling p {
     font-weight: 300;
 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 50%;
 }
 
@@ -141,19 +168,31 @@ form button:hover {
     color: #fff;
 }
 
-@media (max-width: 825px) {
-    .careerObjective, .aboutYou{
+@media (max-width: 1145px) {
+    .aboutYou {
         flex-direction: column;
         gap: 0;
     }
 
-    .careerObjective p, .aboutYou p {
+    .aboutYou .content-text .lists {
+        margin-bottom: 50px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 825px) {
+    .careerObjective{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .careerObjective p{
         margin-bottom: 50px;
     }
 }
 
 @media (max-width: 665px) {
-    .careerObjective p, .aboutYou p {
+    .careerObjective p {
         width: 100%;
     }
 }
@@ -164,15 +203,23 @@ form button:hover {
     }
 
     .example {
-        line-height: 30px;
-        font-size: 0.65rem;
+        text-align: start;
     }
 
     header {
         flex-direction: column-reverse;
+        gap: 20px;
     }
 
     .form-section-1 {
+        flex-direction: column;
+    }
+
+    .aboutYou .content-text {
+        width: 100%;
+    }
+
+    .aboutYou .content-text .lists {
         flex-direction: column;
     }
 
