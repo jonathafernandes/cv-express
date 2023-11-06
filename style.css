@@ -1,3 +1,7 @@
+:root {
+    --primary-color: #e9e8eb;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +9,7 @@
 }
 
 body {
+    background: #fdfdfd;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1rem;
     line-height: 20px;
@@ -17,19 +22,22 @@ label {
 }
 
 input {
-    margin-top: 10px;
     padding: 10px;
-
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 300;
 }
 
 textarea {
-    margin-top: 10px;
     padding: 20px;
+
+    resize: none;
+}
+
+input, textarea {
+    margin-top: 10px;
 
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
+    background: var(--primary-color);
+    border: 1px solid #000;
 }
 
 span {
@@ -62,17 +70,18 @@ ul li {
     list-style: none;
     font-size: 0.85rem;
     opacity: 0.7;
-    background: #dfdfdf;
+    background: var(--primary-color);
     font-weight: 300;
 
-    padding: 0.25rem;
+    margin: 0.25rem;
+    padding: 0.15rem;
 }
 
 .example {
     font-size: 0.85rem;
     font-weight: 300;
     opacity: 0.7;
-    background: #dfdfdf;
+    background: var(--primary-color);
 
     padding: 0.25rem;
 }
@@ -200,10 +209,6 @@ form button:hover {
 @media (max-width: 525px) {
     input, textarea {
         width: 90%;
-    }
-
-    .example {
-        text-align: start;
     }
 
     header {

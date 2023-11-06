@@ -66,7 +66,7 @@ function generatePDF() {
             style: 'main'
         },
         {
-            text: 'SOBRE MIN\n______________________________________________________',
+            text: 'SOBRE MIM\n______________________________________________________',
             style: 'title'
         },
         {
@@ -184,7 +184,7 @@ function generatePDF() {
         }
     };
 
-    pdfMake.createPdf(documentDefinition).download('documento.pdf');
+    pdfMake.createPdf(documentDefinition).download(`Currículo - ${fullName}.pdf`);
 }
 
 checkPdfMakeLoaded();
