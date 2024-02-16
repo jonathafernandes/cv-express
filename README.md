@@ -15,4 +15,4 @@ Para isso, temos:
 - Dicas para criar incluir as informações importantes
 ---
 
-**Visite:** https://br.aigrejadejesuscristo.org/
+**Visite:** https://cv-express.vercel.app/
